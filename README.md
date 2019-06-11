@@ -1,0 +1,2 @@
+# SimonGame
+Functional Simon Game
