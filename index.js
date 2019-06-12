@@ -9,6 +9,8 @@ var correctSeq = false;
 
 class Game {
   constructor(myStatus) {
+    seqTarget = [];
+    seqActual = [];
     this.status = myStatus;
     this.level = 1;
   }
@@ -21,19 +23,13 @@ class Game {
     ++this.level;
     return this.level;
   }
-
-  setStatus(myStatus) {
-    //playing
-    //gameover
-    this.status = myStatus;
-    return this.status;
-  }
 }
 
 
 $(document).keypress(function() {
-  if ($("h1").text() == "Press A Key to Start") {
-    game = new Game("playing"); //begin game
+  var userText = $("h1").text();
+  if(userText.includes("Key")){
+    game = new Game(); //begin game
     index = Math.floor(Math.random() * 4);
     soundDir = "sounds/" + colorList[index] + ".mp3";
     makeSound(soundDir);
